@@ -194,6 +194,17 @@
 
 - The idea was to make it simple to undestand and organized. The code counts with the `main()` function that actually runds the loop necessary for it's constant measurements. Before the main funcition there are several other functions with very descriptive names, each for one sensor, relay, or input to the user.
 
+### Fluxogram
+<div style="display:flex;justify-content:center;">
+    <img src="./Images/fluxogram.png" 
+        alt="Fluxogram for the ESP32 Operation" 
+        title="Fluxogram for the ESP32 Operation" 
+        width="450px"
+        style="border-radius:5px"
+    >
+</div>
+<br/>
+
 
 ## My Project
 <div style="display:flex;justify-content:center;">
@@ -410,6 +421,19 @@
 - [Código Fonte](https://github.com/FelipeGuerra5/iot-micropython-air-quality/blob/main/main.py)
 
 - A ideia foi torná-lo simples de entender e organizado. O código conta com a função `main()`, que na verdade executa o loop necessário para as medições constantes. Antes da função principal, existem várias outras funções com nomes bem descritivos, cada uma para um sensor, relé ou entrada do usuário.
+
+
+### Fluxograma
+<div style="display:flex;justify-content:center;">
+    <img src="./Images/fluxogram.png" 
+        alt="Fluxograma para operação do ESP32" 
+        title="Fluxograma para operação do ESP32" 
+        width="450px"
+        style="border-radius:5px"
+    >
+</div>
+<br/>
+
 
 ## Meu Projeto
 
