@@ -1,4 +1,17 @@
 # IoT Air Quality System
+<div style="display:flex; justify-content:center;">
+    <a 
+        style="padding:5px;margin:0 5px"
+        href="#sistema-de-qualidade-do-ar-iot">
+        <img src="./Images/portugues.webp" alt="Português" title="Português" width="50px">
+    </a>
+    <a 
+        style="padding:5px;margin:0 5px"
+        href="#iot-air-quality-system">
+        <img src="./Images/inlges.webp" alt="English" title="English" width="50px">
+    </a>
+</div>
+
 - The objective of this project is to read the Temperature, Humidity and Nocive gases concentration in PPM of a ambient and then display it on a dashboard
 
 ## Shortcuts
@@ -23,7 +36,7 @@
 - [Helpfull to Have](#helpfull-to-have)
 
 ### Board
-<div style="text-align: center;">
+<div style="display:flex;justify-content:center;">
     <img 
         src="./Images/esp32.jpg" 
         alt="ESP 32 30 Pins image" 
@@ -45,7 +58,7 @@
 - [Esp32 Devkit v1](https://www.amazon.com.br/M%C3%B3dulo-WiFi-ESP32-Bluetooth-pinos/dp/B0BSVFG762/ref=sr_1_3?__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=WMWMTC1JIUQU&dib=eyJ2IjoiMSJ9.WH80v_Y2VHjWaRhQytjX1y3mkqjBqMul7lnmNVfnQ2eNoGg7fKOrN-LggpWsD6ocbSDMR6IAs_aoVEG6huI7E-zrGmdtMNbtJrPl_6fNB8FhrcG7xYbQd-4rM-xePVlwVJfKUKlGlbPqEMuhCv3JbKc6k6Nvt9Z0W6ork_Tw_WsZKbECHX8fCOyVNKQ76c9KN7NDoMHbYsB_MeAaTAEbTzlRbOu7CmolssTtWibh19EiWYG0evMUFFvcS2t80-Vitb19K66JE__tSJCktODvGNCUaROma-XVyFL8TIBOqKk.NbchqtMsr2AJ6xpofmZTCoJ6Ggbu_cvc6BnaehqGZMQ&dib_tag=se&keywords=esp32+30+pinos&qid=1732003186&sprefix=esp32+30+pinos%2Caps%2C182&sr=8-3&ufe=app_do%3Aamzn1.fos.6d798eae-cadf-45de-946a-f477d47705b9)
 
 ### Temperature and Humidity Sensor
-<div style="text-align: center;">
+<div style="display:flex;justify-content:center;">
     <img 
         src="./Images/dht22.jpg" 
         alt="DHT22 Sensor" 
@@ -62,7 +75,7 @@
 
 
 ### Nocive Gases Sensor
-<div style="text-align: center;">
+<div style="display:flex;justify-content:center;">
     <img 
         src="./Images/mq135.jpg" 
         alt="MQ135 Sensor" 
@@ -104,7 +117,7 @@
     - Note that in order to use this as a actual project you would need to change the Wifi ssid and the Password, as well as the MQTT Broker
 - This simulator make it possible to connect to actual Wifi and MQTT Broker and using this configuration you can display the data using Node-Red on your local machine changing the inputs from the sensor.
 - Note that the sensor MQ135 does not have a image, for it's a custom chip, just copy the **mq135.chip.json** and the **mq135.chip.c** files
-<div style="text-align: center;">
+<div style="display:flex;justify-content:center;">
     <img src="./Images/wokwi01.png" 
         alt="Eschema of Project" 
         title="Eschema of Project" 
@@ -114,7 +127,7 @@
 </div>
 <br/>
 
-<div style="text-align: center;">
+<div style="display:flex;justify-content:center;">
     <img src="./Images/wokwi02.png" 
         alt="Developement View or Wokwi" 
         title="Developement View or Wokwi" 
@@ -145,13 +158,13 @@
 - To see the actual data it's possible to use:
     - `mosquitto_sub -h <host> -p 1883 -t <topic>`
 - However the [MQTTX](https://mqttx.app/) provides a solution with a more suitable UI and UX with a dashboard were you can listen to topics in brokers:
-<div style="text-align: center;">
+<div style="display:flex;justify-content:center;">
     <img src="./Images/mqttx.svg" alt="MQTTX Dashboard" title="MQTTX Dashboard" width="450px">
 </div>
 
 ### DashBoard (Client)
 - The choice for the dashboard (client), was the [Node-Red](https://nodered.org/) given the simplicity of the of the software, giving a low code apprach for the builder to use.
-<div style="text-align: center;">
+<div style="display:flex;justify-content:center;">
     <img 
         src="./Images/noderedflow01.png" 
         alt="Node-Red Flow" 
@@ -162,7 +175,7 @@
 </div>
 <br/>
 
-<div style="text-align: center;">
+<div style="display:flex;justify-content:center;">
     <img 
         src="./Images/nodereddashboard01.jpg" 
         alt="" 
@@ -182,7 +195,7 @@
 
 
 ## My Project
-<div style="text-align: center;">
+<div style="display:flex;justify-content:center;">
     <img src="./Images/mysetup.jpg" 
         alt="My Actual Setup" 
         title="My Actual Setup" 
@@ -192,7 +205,7 @@
 </div>
 <br/>
 
-<div style="text-align: center;">
+<div style="display:flex;justify-content:center;">
     <img src="./Images/mysensors.jpg" 
         alt="My Sensors" 
         title="My Sensors" 
@@ -202,7 +215,7 @@
 </div>
 <br/>
 
-<div style="text-align: center;">
+<div style="display:flex;justify-content:center;">
     <img src="./Images/myrelay.jpg" 
         alt="Relay Assembly" 
         title="Relay Assembly" 
@@ -212,7 +225,7 @@
 </div>
 <br/>
 
-<div style="text-align: center;">
+<div style="display:flex;justify-content:center;">
     <img src="./Images/mydashbaord01.png" 
         alt="DashBoard from Node-Red" 
         title="DashBoard from Node-Red" 
@@ -222,7 +235,7 @@
 </div>
 <br/>
 
-<div style="text-align: center;">
+<div style="display:flex;justify-content:center;">
     <img src="./Images/mqttxdashboard.png" 
         alt="MQTTX Dashboard" 
         title="MQTTX Dashboard" 
@@ -232,7 +245,7 @@
 </div>
 <br/>
 
-<div style="text-align: center;">
+<div style="display:flex;justify-content:center;">
     <img src="./Images/mynoderedflow.png" 
         alt="Node-Red Flow" 
         title="Node-Red Flow" 
@@ -244,5 +257,194 @@
 - [Flow Json](https://github.com/FelipeGuerra5/iot-micropython-air-quality/blob/main/flows.json)
 
 <br/>
+<br/>
 
-j
+
+# Sistema de Qualidade do Ar IoT
+- O objetivo deste projeto é ler a Temperatura, Umidade e a concentração de Gases Nocivos em PPM de um ambiente e exibi-los em um painel.
+
+## Atalhos
+
+- [Escolhas](#choises)
+    - [Placa](#board)
+    - [Sensor de Temperatura e Umidade](#temperature-and-humidity-sensor)
+    - [Sensor de Gases Nocivos](#nocive-gases-sensor)
+    - [Útil de Ter](#helpfull-to-have)
+- [Software](#software)
+    - [Simulador](#simulator)
+    - [Broker MQTT](#mqtt-broker)
+    - [Painel](#dashboard-client)
+- [Código](#code)
+- [Meu Projeto](#my-project)
+
+## Escolhas 
+
+- [Placa](#board)
+- [Sensor de Temperatura e Umidade](#temperature-and-humidity-sensor)
+- [Sensor de Gases Nocivos](#nocive-gases-sensor)
+- [Útil de Ter](#helpfull-to-have)
+
+### Placa
+<div style="display:flex;justify-content:center;">
+    <img 
+        src="./Images/esp32.jpg" 
+        alt="Imagem do ESP 32 30 Pinos" 
+        title="Imagem do ESP 32 30 Pinos" 
+        width="450px"
+        style="border-radius:5px"
+    >
+</div>
+<br/>
+
+- O ESP32 é uma excelente escolha para projetos IoT, especialmente para iniciantes, porque é fácil de usar e possui recursos úteis. Ele tem Wi-Fi e Bluetooth integrados, permitindo que você conecte seus dispositivos à internet ou se comunique com outros dispositivos sem precisar de hardware adicional. Isso o torna perfeito para criar sistemas inteligentes, como estações meteorológicas, automação residencial ou dispositivos de monitoramento.
+
+- Um dos motivos para escolher o ESP32 é que ele suporta o MicroPython, uma linguagem de programação simples e fácil de aprender. Ao contrário de linguagens mais complicadas, o MicroPython permite escrever e testar seu código rapidamente, mesmo se você for iniciante em programação. Isso é uma grande vantagem para iniciantes ou hobbyistas que querem se concentrar em fazer seus projetos funcionarem, ao invés de gastar muito tempo aprendendo linguagens complexas.
+
+- O ESP32 também é acessível e amplamente disponível, o que significa que você não precisa gastar muito dinheiro para começar. Ele funciona bem com muitos sensores e outros componentes, permitindo criar uma grande variedade de projetos sem problemas de compatibilidade. Além disso, há muitos guias online e suporte da comunidade para ajudar você a aprender e resolver problemas ao longo do caminho.
+
+- No geral, o ESP32 é uma escolha inteligente porque é poderoso, simples de programar e econômico, tornando-o uma excelente opção para quem deseja explorar projetos IoT.
+
+- [Esp32 Devkit v1](https://www.amazon.com.br/M%C3%B3dulo-WiFi-ESP32-Bluetooth-pinos/dp/B0BSVFG762/ref=sr_1_3?__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=WMWMTC1JIUQU&dib=eyJ2IjoiMSJ9.WH80v_Y2VHjWaRhQytjX1y3mkqjBqMul7lnmNVfnQ2eNoGg7fKOrN-LggpWsD6ocbSDMR6IAs_aoVEG6huI7E-zrGmdtMNbtJrPl_6fNB8FhrcG7xYbQd-4rM-xePVlwVJfKUKlGlbPqEMuhCv3JbKc6k6Nvt9Z0W6ork_Tw_WsZKbECHX8fCOyVNKQ76c9KN7NDoMHbYsB_MeAaTAEbTzlRbOu7CmolssTtWibh19EiWYG0evMUFFvcS2t80-Vitb19K66JE__tSJCktODvGNCUaROma-XVyFL8TIBOqKk.NbchqtMsr2AJ6xpofmZTCoJ6Ggbu_cvc6BnaehqGZMQ&dib_tag=se&keywords=esp32+30+pinos&qid=1732003186&sprefix=esp32+30+pinos%2Caps%2C182&sr=8-3&ufe=app_do%3Aamzn1.fos.6d798eae-cadf-45de-946a-f477d47705b9)
+
+### Sensor de Temperatura e Umidade
+<div style="display:flex;justify-content:center;">
+    <img 
+        src="./Images/dht22.jpg" 
+        alt="Sensor DHT22" 
+        title="Sensor DHT22" 
+        width="450px"
+        style="border-radius:5px"
+    >
+</div>
+<br/>
+
+- O DHT22 foi escolhido em vez do DHT11 devido à maior precisão, maior faixa de medições, confiabilidade a longo prazo e atualizações de dados mais rápidas.
+- Existem outras opções no mercado, porém nenhuma tão custo-efetiva quanto o DHT22.
+- [DHT22](https://www.amazon.com.br/Sensor-Temperatura-DHT22-Para-Arduino/dp/B09VX6D8YR/ref=sr_1_3?__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=6ZXQIZ1TACUT&dib=eyJ2IjoiMSJ9.XqUREXNGu55KhFT2Gwjfe3W4qIGI5ih-Drr0dUvO6R0cvGh-F2eXixOdUYPSdLuyr6HN_HAuLAz6IIeXOWo91Q_AmDdMDR-fRB8Mg2KslChQ1H1VYKYHw9oFEwdNB4h_z1OnHwhsiCF3uYAYCQMIGjukyLqtS2VbxbN2D3_GfdUet8dTcbJq86qD3O-WdF9VPRP9MTN5AsBjqfC7M568CQn27gp2DAc55epuD9Lat_xqMQKxD2QknSzCQWiLWP9dORlCNBjoMCZumc9P_aIZwqtnYNks6tMgx6Rx3phc0K4.ri61FLrd1c1bFPLHWGWMS6fXidR54PbFCUUBpIo13yk&dib_tag=se&keywords=dht22&qid=1732003940&sprefix=dht22%2Caps%2C260&sr=8-3&ufe=app_do%3Aamzn1.fos.6d798eae-cadf-45de-946a-f477d47705b9)
+
+### Sensor de Gases Nocivos
+<div style="display:flex;justify-content:center;">
+    <img 
+        src="./Images/mq135.jpg" 
+        alt="Sensor MQ135" 
+        title="Sensor MQ135" 
+        width="200px"
+        style="border-radius:5px"
+    >
+</div>
+<br/>
+
+- O sensor de gás MQ135 é uma opção custo-efetiva e versátil para projetos de monitoramento de qualidade do ar. Ele pode detectar vários gases, incluindo amônia, óxidos de nitrogênio, benzeno, álcool, fumaça e dióxido de carbono, tornando-o adequado para ambientes com múltiplos poluentes. Sua ampla faixa de detecção (10 ppm a 1000 ppm) e compatibilidade com microcontroladores como Arduino e ESP32 garantem fácil integração. O sensor é ajustável para aplicações específicas via um potenciômetro embutido e opera de maneira confiável em uma ampla faixa de temperatura e umidade. Embora seja excelente para detectar tendências na qualidade do ar, ele requer calibração para leituras precisas e não pode distinguir entre os gases sem processamento adicional. No geral, o MQ135 é ideal para projetos focados em identificar mudanças relativas na qualidade do ar, em vez de medições precisas.
+
+- [MQ135](https://www.amazon.com.br/Gen%C3%A9rico-Sensor-Mq-135-Am%C3%B4nia-N%C3%ADtrico/dp/B0D8ZKWRBY/ref=sr_1_1?__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=SZ4QNRP2VRU&dib=eyJ2IjoiMSJ9.jWrrco8X1EbOx2C_0oIKpdsQfCh7r8AilE6GyJwG5LvswEzx5TpY1V9SrsXlT5PbPIryguJ3oadWdDtpxDTOSRVF2-TrxmIy0FiJnOh7fj4.7hcq-G-3Bc2T1p7zIVlmLX4jlk8JNRkUpuvRTjDxyAw&dib_tag=se&keywords=mq135&qid=1732004354&sprefix=mq135%2Caps%2C239&sr=8-1)
+
+### Relé
+<div
+
+ style="display:flex;justify-content:center;">
+    <img 
+        src="./Images/relay.jpg" 
+        alt="Relé" 
+        title="Relé" 
+        width="450px"
+        style="border-radius:5px"
+    >
+</div>
+<br/>
+
+- O relé de 5V de 2 canais foi escolhido para controlar dispositivos externos, como um ventilador ou sistema de ventilação, em resposta a medições de qualidade do ar. Ao conectar o ESP32 ao relé, você pode programar a ação do ventilador ou de outros dispositivos com base na leitura do sensor de gás.
+- [Relé](https://www.amazon.com.br/Modulo-Relé-5V-2-canais-Arduino/dp/B0714NG9P6/ref=sr_1_2?__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=2VRS5D37UI6&dib=eyJ2IjoiMSJ9.ychXFL6g0QnY7eJxyNxH9vN5_h0yy33yNS2j54n8E-lQ20_CJZQyrAh4nVqqj2y2XKcz25zHYXzp4M8y1fdtl-7sGZOLJ9KL1mG4WRA0b0giEzYtoS4KrWsPzVg6EM5Z4QYrdeJkH-dfj5CgMb_SyM2dp46m9gjOh1fB_wE1eL0cUoZCkivsz37CUzmrVXXLxH_Hz-fT2ZqWKLhO8ws6IX3ThrlV8Jd61lMhf8_vNNj6fVYdpckb7Z6Ij1NJ9Rt1gRI5jwVSqOZQfc_lJmREPH0l_eAjEyJzWce69n0zv6b_.FFM7llzTq-XUPUZXkzHD7GleXknRfIc4VuYo67o6izY&dib_tag=se&keywords=rele+5v&qid=1732004573&sprefix=rele+5v%2Caps%2C219&sr=8-2)
+
+### Útil de Ter
+<div style="display:flex;justify-content:center;">
+    <img 
+        src="./Images/mosquitto.jpg" 
+        alt="Mosquitto MQTT" 
+        title="Mosquitto MQTT" 
+        width="350px"
+        style="border-radius:5px"
+    >
+</div>
+<br/>
+
+- O **Mosquitto** é um broker MQTT leve e eficiente para a comunicação em tempo real entre o dispositivo ESP32 e o painel.
+- [Mosquitto](https://mosquitto.org/download/)
+
+## Software
+
+- [Simulador](#simulator)
+- [Broker MQTT](#mqtt-broker)
+- [Painel](#dashboard-client)
+
+### Simulador
+No momento, você pode utilizar plataformas como [Wokwi](https://wokwi.com/) para testar a parte do código em que usa sensores e componentes. Você consegue realizar a simulação do código com componentes como o DHT22 e MQ135.
+ 
+### Broker MQTT
+O broker MQTT pode ser local ou remoto. A escolha de um broker local, como o Mosquitto instalado no Raspberry Pi ou servidor local, garante mais controle sobre os dados, mas requer configuração adicional. Já os brokers remotos, como o **HiveMQ** ou **Adafruit IO**, são fáceis de configurar e oferecem opções para armazenar e visualizar os dados coletados.
+
+### Painel
+- Você pode usar plataformas como **ThingSpeak**, **Adafruit IO** ou construir um painel web próprio utilizando o **ReactJS**, que permite a integração em tempo real com o MQTT.
+
+## Código
+
+```python
+import time
+import dht
+import machine
+import network
+import ubinascii
+from umqtt.simple import MQTTClient
+
+# Definir a configuração do Wi-Fi
+wifi_ssid = "Seu_SSID"
+wifi_password = "Sua_Senha"
+
+# Definir a configuração do MQTT
+mqtt_server = "broker.mqtt.com"
+mqtt_port = 1883
+mqtt_topic = "qualidade/ar"
+
+# Definir o sensor DHT22
+dht_pin = machine.Pin(15)
+sensor = dht.DHT22(dht_pin)
+
+# Conectar ao Wi-Fi
+def conectar_wifi():
+    wlan = network.WLAN(network.STA_IF)
+    wlan.active(True)
+    wlan.connect(wifi_ssid, wifi_password)
+    
+    while not wlan.isconnected():
+        time.sleep(1)
+    print("Conectado ao Wi-Fi: ", wifi_ssid)
+    
+# Conectar ao MQTT
+def conectar_mqtt():
+    client = MQTTClient("esp32", mqtt_server)
+    client.connect()
+    print("Conectado ao broker MQTT")
+    return client
+
+# Enviar dados via MQTT
+def enviar_dados(client):
+    sensor.measure()
+    temperatura = sensor.temperature()
+    umidade = sensor.humidity()
+    
+    payload = "Temperatura: {} C, Umidade: {}%".format(temperatura, umidade)
+    client.publish(mqtt_topic, payload)
+    print("Dados enviados:", payload)
+
+# Executar o programa
+conectar_wifi()
+mqtt_client = conectar_mqtt()
+
+while True:
+    enviar_dados(mqtt_client)
+    time.sleep(60)  # Enviar dados a cada 60 segundos
+```
+
+## Meu Projeto
+
+Esse projeto tem como objetivo monitorar a qualidade do ar, controlando ventilação com base na concentração de gases e temperatura. Através de um painel web simples, você consegue visualizar em tempo real os valores coletados pelos sensores DHT22 e MQ135. O ESP32, ao conectar-se ao Wi-Fi e enviar dados para um broker MQTT, facilita a transmissão de dados para o painel.
+
