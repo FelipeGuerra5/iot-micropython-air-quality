@@ -101,6 +101,7 @@
     >
 </div>
 <br/>
+
 - For the Relay was used a board with 8 channels, not for necessity, but only becuase I already had this board available.
 - [Relay 1 Channel](https://www.amazon.com.br/Gen%C3%A9rico-M%C3%B3dulo-Relay-Ky-019-Arduino/dp/B0DF6PL41J/ref=sr_1_3?__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=G4RJLY3WOR5B&dib=eyJ2IjoiMSJ9.JAxgBTsVUdFfq3MhGHKl7DnqWCRbmmBv1yVbj5hIc4FSuz4KQXrDIEgae3l74J4fwXT0lPdWYrspoQDv3GuRIpnHOv8eJ4oKOHY9nK02qejr-9XSUL3feSnT7q_xT39EeJjwjLAPQsfWL5ex_ftlvw8RjW_HeMJeY3JsNh5avzJDIij9-Hnp8Er3rlxOzHWelyoK_H_Ey5u4KdZz2MnKwh2CsTOZBbKdPenQWlBYMjpkXZ_4CVbmFE6QcA0IEtplYTOY9v8VmHhbGiAt3fGSqWdc1yTma6ybJJeDuzxWCJg.yWP2xo3iHdGbV9uQuIpKNfyAk07FvGi7r6eQ0KZTWTU&dib_tag=se&keywords=relay&qid=1732005207&sprefix=realay%2Caps%2C229&sr=8-3)
 - [Relay 8 Channels](https://www.amazon.com.br/M%C3%B3dulo-Rel%C3%A9-Canais-para-Arduino/dp/B0C9L8BWF3/ref=sr_1_10?__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=ETOKOQUSVZBU&dib=eyJ2IjoiMSJ9.YhjXiMFXjLcqgQ3ts9k5yKj24MsN4ax5E7Sp6Haq6Uu1oPne_cPDkYAl-KdLNf7wzRWe5e1WveWYMae6bnoFe2nOMOpfbIg2zUjKXpKsFoIhuKsftKq5lcmT5BAcpowmOvTvDly-2BmeH9gBS7YAWrwo1Oe-uNL-iz0o_9GeYArnvLtukItDT0UpAgM0mAR9xxWsy8IdNJcH8cZZnvRvyxjel0ZXXClLXshbUmtQTv2L-xHHjkgQeilygRxLH0ZPIAc7KsCVJKFqEMJbvhYPeh9Fyil7G5WjT9i8JkOBrII.CbtxNNF62WwECbj7AJ_EGvZhXr4HQZsZXGTOSzezC2Q&dib_tag=se&keywords=8+channel+relay&qid=1732005114&sprefix=8+channel+relay%2Caps%2C223&sr=8-10&ufe=app_do%3Aamzn1.fos.6d798eae-cadf-45de-946a-f477d47705b9)
