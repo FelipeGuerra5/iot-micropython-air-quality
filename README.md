@@ -261,28 +261,28 @@
 
 
 # Sistema de Qualidade do Ar IoT
-- O objetivo deste projeto é ler a Temperatura, Umidade e a concentração de Gases Nocivos em PPM de um ambiente e exibi-los em um painel.
+- Esse projeto tem como objetivo monitorar a qualidade do ar, controlando ventilação com base na concentração de gases e temperatura. Através de um painel web simples, você consegue visualizar em tempo real os valores coletados pelos sensores DHT22 e MQ135. O ESP32, ao conectar-se ao Wi-Fi e enviar dados para um broker MQTT, facilita a transmissão de dados para o painel.
 
 ## Atalhos
 
-- [Escolhas](#choises)
-    - [Placa](#board)
-    - [Sensor de Temperatura e Umidade](#temperature-and-humidity-sensor)
-    - [Sensor de Gases Nocivos](#nocive-gases-sensor)
-    - [Útil de Ter](#helpfull-to-have)
-- [Software](#software)
-    - [Simulador](#simulator)
-    - [Broker MQTT](#mqtt-broker)
-    - [Painel](#dashboard-client)
-- [Código](#code)
-- [Meu Projeto](#my-project)
+- [Escolhas](#escolhas)
+    - [Placa](#placa)
+    - [Sensor de Temperatura e Umidade](#sensor-de-temperatura-e-umidade)
+    - [Sensor de Gases Nocivos](#sensor-de-gases-nocivos)
+    - [Útil de Ter](#útil-de-ter)
+- [Software](#software-1)
+    - [Simulador](#simulador)
+    - [Broker MQTT](#broker-mqtt)
+    - [Painel](#painel)
+- [Código](#código)
+- [Meu Projeto](#meu-projeto)
 
 ## Escolhas 
 
-- [Placa](#board)
-- [Sensor de Temperatura e Umidade](#temperature-and-humidity-sensor)
-- [Sensor de Gases Nocivos](#nocive-gases-sensor)
-- [Útil de Ter](#helpfull-to-have)
+- [Placa](#placa)
+- [Sensor de Temperatura e Umidade](#sensor-de-temperatura-e-umidade)
+- [Sensor de Gases Nocivos](#sensor-de-gases-nocivos)
+- [Útil de Ter](#útil-de-ter)
 
 ### Placa
 <div style="display:flex;justify-content:center;">
@@ -339,9 +339,7 @@
 - [MQ135](https://www.amazon.com.br/Gen%C3%A9rico-Sensor-Mq-135-Am%C3%B4nia-N%C3%ADtrico/dp/B0D8ZKWRBY/ref=sr_1_1?__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=SZ4QNRP2VRU&dib=eyJ2IjoiMSJ9.jWrrco8X1EbOx2C_0oIKpdsQfCh7r8AilE6GyJwG5LvswEzx5TpY1V9SrsXlT5PbPIryguJ3oadWdDtpxDTOSRVF2-TrxmIy0FiJnOh7fj4.7hcq-G-3Bc2T1p7zIVlmLX4jlk8JNRkUpuvRTjDxyAw&dib_tag=se&keywords=mq135&qid=1732004354&sprefix=mq135%2Caps%2C239&sr=8-1)
 
 ### Relé
-<div
-
- style="display:flex;justify-content:center;">
+<div style="display:flex;justify-content:center;">
     <img 
         src="./Images/relay.jpg" 
         alt="Relé" 
@@ -356,93 +354,61 @@
 - [Relé](https://www.amazon.com.br/Modulo-Relé-5V-2-canais-Arduino/dp/B0714NG9P6/ref=sr_1_2?__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=2VRS5D37UI6&dib=eyJ2IjoiMSJ9.ychXFL6g0QnY7eJxyNxH9vN5_h0yy33yNS2j54n8E-lQ20_CJZQyrAh4nVqqj2y2XKcz25zHYXzp4M8y1fdtl-7sGZOLJ9KL1mG4WRA0b0giEzYtoS4KrWsPzVg6EM5Z4QYrdeJkH-dfj5CgMb_SyM2dp46m9gjOh1fB_wE1eL0cUoZCkivsz37CUzmrVXXLxH_Hz-fT2ZqWKLhO8ws6IX3ThrlV8Jd61lMhf8_vNNj6fVYdpckb7Z6Ij1NJ9Rt1gRI5jwVSqOZQfc_lJmREPH0l_eAjEyJzWce69n0zv6b_.FFM7llzTq-XUPUZXkzHD7GleXknRfIc4VuYo67o6izY&dib_tag=se&keywords=rele+5v&qid=1732004573&sprefix=rele+5v%2Caps%2C219&sr=8-2)
 
 ### Útil de Ter
-<div style="display:flex;justify-content:center;">
-    <img 
-        src="./Images/mosquitto.jpg" 
-        alt="Mosquitto MQTT" 
-        title="Mosquitto MQTT" 
-        width="350px"
-        style="border-radius:5px"
-    >
-</div>
-<br/>
+- É útil ter algumas ferramentas para fazer funcionar corretamente sem muito esforço, como uma **BreadBoard**,**Jumpers**, Placa de **Fonte de Alimentação** Arduino, e **tomada de 127v 10A** tanto **Fêmea** quanto para **Macho**
 
-- O **Mosquitto** é um broker MQTT leve e eficiente para a comunicação em tempo real entre o dispositivo ESP32 e o painel.
-- [Mosquitto](https://mosquitto.org/download/)
 
 ## Software
 
-- [Simulador](#simulator)
-- [Broker MQTT](#mqtt-broker)
-- [Painel](#dashboard-client)
+- [Simulador](#simulador)
+- [Broker MQTT](#broker-mqtt)
+- [Painel](#painel)
 
 ### Simulador
-No momento, você pode utilizar plataformas como [Wokwi](https://wokwi.com/) para testar a parte do código em que usa sensores e componentes. Você consegue realizar a simulação do código com componentes como o DHT22 e MQ135.
+- No momento, você pode utilizar plataformas como [Wokwi](https://wokwi.com/) para testar a parte do código em que usa sensores e componentes. Você consegue realizar a simulação do código com componentes como o DHT22 e MQ135.
  
 ### Broker MQTT
-O broker MQTT pode ser local ou remoto. A escolha de um broker local, como o Mosquitto instalado no Raspberry Pi ou servidor local, garante mais controle sobre os dados, mas requer configuração adicional. Já os brokers remotos, como o **HiveMQ** ou **Adafruit IO**, são fáceis de configurar e oferecem opções para armazenar e visualizar os dados coletados.
+
+- [Mosquitto Broker](https://mosquitto.org/)
+- A escolha para este projeto foi o Mosquitto pela sua facilidade de instalação e simplicidade de uso, ou seja, se você estiver um pouco familiarizado com a linha de comando.
+- Após a instalação, você precisará iniciá-lo. Eu sempre uso a flag `-v` enquanto desenvolvo para ver o fluxo de informações.
+    - `mosquitto -v`
+- Às vezes, para desenvolvimento, pode ser necessário configurar o arquivo *mosquitto.conf*.
+    - `listener 1883`
+    - `allow_anonymous true`
+    - Então, você precisaria iniciar o broker com as alterações personalizadas:
+        - `mosquitto -c <path/to/mosquitto.conf> -v`
+- Para ver os dados reais, é possível usar:
+    - `mosquitto_sub -h <host> -p 1883 -t <topic>`
+- No entanto, o [MQTTX](https://mqttx.app/) fornece uma solução com uma interface e experiência de usuário mais adequadas, com um painel onde você pode ouvir tópicos em brokers
 
 ### Painel
-- Você pode usar plataformas como **ThingSpeak**, **Adafruit IO** ou construir um painel web próprio utilizando o **ReactJS**, que permite a integração em tempo real com o MQTT.
+- A escolha para o painel (cliente) foi o [Node-Red](https://nodered.org/) devido à simplicidade do software, oferecendo uma abordagem de baixo código para o desenvolvedor usar
+
+<div style="display:flex;justify-content:center;">
+    <img 
+        src="./Images/noderedflow01.png" 
+        alt="Node-Red Flow" 
+        title="Node-Red Flow" 
+        width="450px"
+        style="border-radius:5px"
+        >
+</div>
+<br/>
+
+<div style="display:flex;justify-content:center;">
+    <img 
+        src="./Images/nodereddashboard01.jpg" 
+        alt="" 
+        title="" 
+        width="450px"
+        style="border-radius:5px">
+    >
+</div>
 
 ## Código
+- [Código Fonte](https://github.com/FelipeGuerra5/iot-micropython-air-quality/blob/main/main.py)
 
-```python
-import time
-import dht
-import machine
-import network
-import ubinascii
-from umqtt.simple import MQTTClient
-
-# Definir a configuração do Wi-Fi
-wifi_ssid = "Seu_SSID"
-wifi_password = "Sua_Senha"
-
-# Definir a configuração do MQTT
-mqtt_server = "broker.mqtt.com"
-mqtt_port = 1883
-mqtt_topic = "qualidade/ar"
-
-# Definir o sensor DHT22
-dht_pin = machine.Pin(15)
-sensor = dht.DHT22(dht_pin)
-
-# Conectar ao Wi-Fi
-def conectar_wifi():
-    wlan = network.WLAN(network.STA_IF)
-    wlan.active(True)
-    wlan.connect(wifi_ssid, wifi_password)
-    
-    while not wlan.isconnected():
-        time.sleep(1)
-    print("Conectado ao Wi-Fi: ", wifi_ssid)
-    
-# Conectar ao MQTT
-def conectar_mqtt():
-    client = MQTTClient("esp32", mqtt_server)
-    client.connect()
-    print("Conectado ao broker MQTT")
-    return client
-
-# Enviar dados via MQTT
-def enviar_dados(client):
-    sensor.measure()
-    temperatura = sensor.temperature()
-    umidade = sensor.humidity()
-    
-    payload = "Temperatura: {} C, Umidade: {}%".format(temperatura, umidade)
-    client.publish(mqtt_topic, payload)
-    print("Dados enviados:", payload)
-
-# Executar o programa
-conectar_wifi()
-mqtt_client = conectar_mqtt()
-
-while True:
-    enviar_dados(mqtt_client)
-    time.sleep(60)  # Enviar dados a cada 60 segundos
-```
+- A ideia foi torná-lo simples de entender e organizado. O código conta com a função `main()`, que na verdade executa o loop necessário para as medições constantes. Antes da função principal, existem várias outras funções com nomes bem descritivos, cada uma para um sensor, relé ou entrada do usuário.
 
 ## Meu Projeto
 
