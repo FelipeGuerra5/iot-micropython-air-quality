@@ -413,5 +413,61 @@
 
 ## Meu Projeto
 
-Esse projeto tem como objetivo monitorar a qualidade do ar, controlando ventilação com base na concentração de gases e temperatura. Através de um painel web simples, você consegue visualizar em tempo real os valores coletados pelos sensores DHT22 e MQ135. O ESP32, ao conectar-se ao Wi-Fi e enviar dados para um broker MQTT, facilita a transmissão de dados para o painel.
+<div style="display:flex;justify-content:center;">
+    <img src="./Images/mysetup.jpg" 
+        alt="My Actual Setup" 
+        title="My Actual Setup" 
+        width="450px"
+        style="border-radius:5px"
+    >
+</div>
+<br/>
 
+<div style="display:flex;justify-content:center;">
+    <img src="./Images/mysensors.jpg" 
+        alt="My Sensors" 
+        title="My Sensors" 
+        width="450px"
+        style="border-radius:5px"
+    >
+</div>
+<br/>
+
+<div style="display:flex;justify-content:center;">
+    <img src="./Images/myrelay.jpg" 
+        alt="Relay Assembly" 
+        title="Relay Assembly" 
+        width="450px"
+        style="border-radius:5px"
+    >
+</div>
+<br/>
+
+<div style="display:flex;justify-content:center;">
+    <img src="./Images/mydashbaord01.png" 
+        alt="DashBoard from Node-Red" 
+        title="DashBoard from Node-Red" 
+        width="450px"
+        style="border-radius:5px"
+    >
+</div>
+<br/>
+
+<div style="display:flex;justify-content:center;">
+    <img src="./Images/mqttxdashboard.png" 
+        alt="MQTTX Dashboard" 
+        title="MQTTX Dashboard" 
+        width="450px"
+        style="border-radius:5px"
+    >
+</div>
+<br/>
+
+<div style="display:flex;justify-content:center;">
+    <img src="./Images/mynoderedflow.png" 
+        alt="Node-Red Flow" 
+        title="Node-Red Flow" 
+        width="450px"
+        style="border-radius:5px"
+    >
+</div>
