@@ -4,6 +4,8 @@ import dht
 import network
 import ujson
 from umqtt.simple import MQTTClient
+# Import for the actuall ssid and password
+from private import WIFI_NAME, WIFI_PASS
 
 time.sleep(3)
 
@@ -14,22 +16,20 @@ time.sleep(3)
 dht_sensor = dht.DHT22(Pin(15))
 ppm_sensor = ADC(Pin(34))
 ppm_sensor.width(ADC.WIDTH_12BIT)
+relay = Pin(26, Pin.OUT)
+relay.off()
 led = Pin(2, Pin.OUT)
 
-toxic = 250
-
-# Set up the relay on GPIO 26
-relay = Pin(26, Pin.OUT)  
-relay.off()
+toxic = 300
 
 # MQTT Server Parameters
 MQTT_CLIENT_ID = "micropython-iot"
-MQTT_BROKER    = "test.mosquitto.org"
+# MQTT_BROKER    = "test.mosquitto.org"
+MQTT_BROKER = "192.168.15.144"
 MQTT_PORT = 1883
-MQTT_USER      = ""
-MQTT_PASSWORD  = ""
-MQTT_TOPIC     = "iot-air-qulity"
-
+MQTT_USER = ""
+MQTT_PASSWORD = ""
+MQTT_TOPIC = "iot-air-qulity"
 
 # Workig Status
 def alive(t, r):
@@ -39,12 +39,12 @@ def alive(t, r):
 
 # Conenctivity
 def connect_wifi():
-    alive(.1, 4)
+    alive(.1, 10)
     sta_if = network.WLAN(network.STA_IF)
     sta_if.active(True)
     print("Connecting to WiFi", end="")
     if not sta_if.isconnected():
-        sta_if.connect('Wokwi-GUEST', '')
+        sta_if.connect(WIFI_NAME, WIFI_PASS)
     while not sta_if.isconnected():
         print(".", end="")
         time.sleep(0.5)
@@ -52,16 +52,16 @@ def connect_wifi():
     return sta_if
 
 def connect_mqtt():
-    alive(.05, 8)
+    alive(.05, 20)
     global client
     client = MQTTClient(
-        MQTT_CLIENT_ID, 
-        MQTT_BROKER, 
-        port=MQTT_PORT, 
-        user=MQTT_USER, 
-        keepalive=60, 
+        MQTT_CLIENT_ID,
+        MQTT_BROKER,
+        port=MQTT_PORT,
+        user=MQTT_USER,
+        keepalive=60,
         password=MQTT_PASSWORD
-        )
+    )
     try:
         print("Connecting to MQTT server... ", end="")
         client.connect()
@@ -81,6 +81,7 @@ def read_dht22():
     except Exception as e:
         print("DHT22 Sensor error:", e)
         return "N/A", "N/A"
+
 
 def read_mq135():
     try:
@@ -113,16 +114,18 @@ def assemblePayload(temperature, humidity, mapped_ppm_value):
             "ppm": mapped_ppm_value
         })
     print("Publishing to MQTT:", payload)
-    print("PPM:", mapped_ppm_value, "Temp:", temperature, "Humidity:", humidity, "%")
+    print("PPM:", mapped_ppm_value, "Temp:",
+          temperature, "Humidity:", humidity, "%")
     return payload
-    
+
+
 def main():
     # Connect to WiFi
     connect_wifi()
-    
+
     # Set up MQTT client and connect
     connect_mqtt()
-    
+
     while True:
         # Read sensors
         temperature, humidity = read_dht22()
@@ -130,7 +133,7 @@ def main():
         control_relay(mapped_ppm_value)
         payload = assemblePayload(temperature, humidity, mapped_ppm_value)
         client.publish(MQTT_TOPIC, payload)
-            
+        alive(.5, 2)  # To time the message
         time.sleep(1)
 
 main()

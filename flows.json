@@ -1,0 +1,666 @@
+[
+    {
+        "id": "18eb8869e9582d83",
+        "type": "tab",
+        "label": "Air Quality IoT Project",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "66577dbb97676978",
+        "type": "mqtt in",
+        "z": "18eb8869e9582d83",
+        "name": "micropython-iot",
+        "topic": "iot-air-qulity",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "d12e1c9e81050d72",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 300,
+        "y": 120,
+        "wires": [
+            [
+                "3d51ce7ed86d5006",
+                "375ac7f29c1e5312",
+                "2e5f08e858951c08"
+            ]
+        ]
+    },
+    {
+        "id": "491f7638fd6a5151",
+        "type": "ui_gauge",
+        "z": "18eb8869e9582d83",
+        "name": "",
+        "group": "364ffd62de66a9da",
+        "order": 1,
+        "width": 4,
+        "height": 4,
+        "gtype": "gage",
+        "title": "Temperature",
+        "label": "ºC",
+        "format": "{{value}}",
+        "min": "-50",
+        "max": "60",
+        "colors": [
+            "#44a7bb",
+            "#e1d270",
+            "#e27c1d"
+        ],
+        "seg1": "0",
+        "seg2": "22.5",
+        "diff": false,
+        "className": "",
+        "x": 810,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "e703c506aaec6798",
+        "type": "ui_gauge",
+        "z": "18eb8869e9582d83",
+        "name": "",
+        "group": "2c6f08c24106471e",
+        "order": 1,
+        "width": 4,
+        "height": 4,
+        "gtype": "gage",
+        "title": "Toxic - PPM",
+        "label": "ppm",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "1000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "200",
+        "seg2": "300",
+        "diff": false,
+        "className": "",
+        "x": 810,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "3d51ce7ed86d5006",
+        "type": "function",
+        "z": "18eb8869e9582d83",
+        "name": "isolateHumidity",
+        "func": "let humidity = msg.payload.humidity\nreturn {payload: humidity}",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 120,
+        "wires": [
+            [
+                "283f43f64a7d7854",
+                "7b6158fa36562ab0",
+                "54082273e4b7c117"
+            ]
+        ]
+    },
+    {
+        "id": "375ac7f29c1e5312",
+        "type": "function",
+        "z": "18eb8869e9582d83",
+        "name": "isolateTemp",
+        "func": "let temp = msg.payload.temperature\nreturn {payload: temp}",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 280,
+        "wires": [
+            [
+                "491f7638fd6a5151",
+                "4045b5ac274498f9",
+                "134f3a9a235d895c"
+            ]
+        ]
+    },
+    {
+        "id": "2e5f08e858951c08",
+        "type": "function",
+        "z": "18eb8869e9582d83",
+        "name": "isolatePpm",
+        "func": "let ppm = msg.payload.ppm\nreturn {payload: ppm}",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 500,
+        "wires": [
+            [
+                "e703c506aaec6798",
+                "b3353a90cadf3acf",
+                "95d677d43c8ab4bc"
+            ]
+        ]
+    },
+    {
+        "id": "283f43f64a7d7854",
+        "type": "ui_gauge",
+        "z": "18eb8869e9582d83",
+        "name": "Humidity",
+        "group": "3a2b5d54aa1e9696",
+        "order": 1,
+        "width": 6,
+        "height": 4,
+        "gtype": "wave",
+        "title": "Humidity",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 800,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "7b6158fa36562ab0",
+        "type": "function",
+        "z": "18eb8869e9582d83",
+        "name": "maxHumidity",
+        "func": "var maxHumidity = context.get(\"maxHumidity\") || 0\nmaxHumidity = msg.payload > maxHumidity ? msg.payload : maxHumidity\ncontext.set(\"maxHumidity\", maxHumidity)\nreturn {payload: maxHumidity}",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 810,
+        "y": 160,
+        "wires": [
+            [
+                "dfc4c57dd6aa7a22"
+            ]
+        ]
+    },
+    {
+        "id": "4045b5ac274498f9",
+        "type": "function",
+        "z": "18eb8869e9582d83",
+        "name": "maxTemp",
+        "func": "let maxTemp = context.get(\"maxTemp\") || 0\nmaxTemp = msg.payload > maxTemp ? msg.payload : maxTemp\ncontext.set(\"maxTemp\", maxTemp)\nreturn {payload: maxTemp}",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 800,
+        "y": 320,
+        "wires": [
+            [
+                "a89edfed6e07fd99"
+            ]
+        ]
+    },
+    {
+        "id": "b3353a90cadf3acf",
+        "type": "function",
+        "z": "18eb8869e9582d83",
+        "name": "maxPpm",
+        "func": "let maxPpm = context.get(\"maxPpm\") || 0\nmaxPpm = msg.payload > maxPpm ? msg.payload : maxPpm\ncontext.set(\"maxPpm\", maxPpm)\nreturn {payload: maxPpm}",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 800,
+        "y": 540,
+        "wires": [
+            [
+                "0dbf3cc22eda57ad"
+            ]
+        ]
+    },
+    {
+        "id": "dfc4c57dd6aa7a22",
+        "type": "ui_gauge",
+        "z": "18eb8869e9582d83",
+        "name": "Max Humidity",
+        "group": "7567723b123b982c",
+        "order": 1,
+        "width": 5,
+        "height": 4,
+        "gtype": "wave",
+        "title": "Humidity",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 1000,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "a89edfed6e07fd99",
+        "type": "ui_gauge",
+        "z": "18eb8869e9582d83",
+        "name": "",
+        "group": "245740392cf114c1",
+        "order": 1,
+        "width": 5,
+        "height": 4,
+        "gtype": "gage",
+        "title": "Temperature",
+        "label": "ºC",
+        "format": "{{value}}",
+        "min": "-50",
+        "max": "60",
+        "colors": [
+            "#44a7bb",
+            "#e1d270",
+            "#e27c1d"
+        ],
+        "seg1": "0",
+        "seg2": "22.5",
+        "diff": false,
+        "className": "",
+        "x": 990,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "0dbf3cc22eda57ad",
+        "type": "ui_gauge",
+        "z": "18eb8869e9582d83",
+        "name": "",
+        "group": "ce3d1c400af8be7f",
+        "order": 1,
+        "width": 5,
+        "height": 4,
+        "gtype": "gage",
+        "title": "Toxic - PPM",
+        "label": "ppm",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "1000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "200",
+        "seg2": "300",
+        "diff": false,
+        "className": "",
+        "x": 990,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "54082273e4b7c117",
+        "type": "function",
+        "z": "18eb8869e9582d83",
+        "name": "minHumidity",
+        "func": "var minHumidity = context.get(\"minHumidity\") || 100\nminHumidity = msg.payload < minHumidity ? msg.payload : minHumidity\ncontext.set(\"minHumidity\", minHumidity)\nreturn {payload: minHumidity}",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 810,
+        "y": 200,
+        "wires": [
+            [
+                "82407ec718e38bea"
+            ]
+        ]
+    },
+    {
+        "id": "82407ec718e38bea",
+        "type": "ui_gauge",
+        "z": "18eb8869e9582d83",
+        "name": "Min Humidity",
+        "group": "3874de3d23663369",
+        "order": 1,
+        "width": 5,
+        "height": 4,
+        "gtype": "wave",
+        "title": "Humidity",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 990,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "134f3a9a235d895c",
+        "type": "function",
+        "z": "18eb8869e9582d83",
+        "name": "minTemp",
+        "func": "let minTemp = context.get(\"minTemp\") || 350\nminTemp = msg.payload < minTemp ? msg.payload : minTemp\ncontext.set(\"minTemp\", minTemp)\nreturn {payload: minTemp}",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 800,
+        "y": 360,
+        "wires": [
+            [
+                "f550415695887b62"
+            ]
+        ]
+    },
+    {
+        "id": "f550415695887b62",
+        "type": "ui_gauge",
+        "z": "18eb8869e9582d83",
+        "name": "",
+        "group": "a6bbea7baf0b5f47",
+        "order": 1,
+        "width": 5,
+        "height": 4,
+        "gtype": "gage",
+        "title": "Temperature",
+        "label": "ºC",
+        "format": "{{value}}",
+        "min": "-50",
+        "max": "60",
+        "colors": [
+            "#44a7bb",
+            "#e1d270",
+            "#e27c1d"
+        ],
+        "seg1": "0",
+        "seg2": "22.5",
+        "diff": false,
+        "className": "",
+        "x": 990,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "95d677d43c8ab4bc",
+        "type": "function",
+        "z": "18eb8869e9582d83",
+        "name": "minPpm",
+        "func": "let minPpm = context.get(\"minPpm\") || 1000\nminPpm = msg.payload < minPpm ? msg.payload : minPpm\ncontext.set(\"minPpm\", minPpm)\nreturn {payload: minPpm}",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 800,
+        "y": 580,
+        "wires": [
+            [
+                "ac7e79d525cb7aed"
+            ]
+        ]
+    },
+    {
+        "id": "ac7e79d525cb7aed",
+        "type": "ui_gauge",
+        "z": "18eb8869e9582d83",
+        "name": "",
+        "group": "30321bdbaa3662c3",
+        "order": 1,
+        "width": 5,
+        "height": 4,
+        "gtype": "gage",
+        "title": "Toxic - PPM",
+        "label": "ppm",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "1000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "200",
+        "seg2": "300",
+        "diff": false,
+        "className": "",
+        "x": 990,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "bfa4e9ce4824537a",
+        "type": "ui_spacer",
+        "z": "18eb8869e9582d83",
+        "name": "spacer",
+        "group": "ce294d560c388f46",
+        "order": 2,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "d00b935fda7e403d",
+        "type": "ui_spacer",
+        "z": "18eb8869e9582d83",
+        "name": "spacer",
+        "group": "ce294d560c388f46",
+        "order": 3,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "707111e21cfe4bee",
+        "type": "ui_spacer",
+        "z": "18eb8869e9582d83",
+        "name": "spacer",
+        "group": "ce294d560c388f46",
+        "order": 4,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "412697b49c85eb1d",
+        "type": "ui_spacer",
+        "z": "18eb8869e9582d83",
+        "name": "spacer",
+        "group": "ce294d560c388f46",
+        "order": 5,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "d12e1c9e81050d72",
+        "type": "mqtt-broker",
+        "name": "192.168.15.144",
+        "broker": "192.168.15.144",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "364ffd62de66a9da",
+        "type": "ui_group",
+        "name": "Temperature",
+        "tab": "d46d0ace9e4734b3",
+        "order": 1,
+        "disp": true,
+        "width": "4",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "2c6f08c24106471e",
+        "type": "ui_group",
+        "name": "PPM",
+        "tab": "d46d0ace9e4734b3",
+        "order": 3,
+        "disp": true,
+        "width": "4",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "3a2b5d54aa1e9696",
+        "type": "ui_group",
+        "name": "Humidity",
+        "tab": "d46d0ace9e4734b3",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": true,
+        "className": ""
+    },
+    {
+        "id": "7567723b123b982c",
+        "type": "ui_group",
+        "name": "Max Humidity",
+        "tab": "219607d6d81babce",
+        "order": 2,
+        "disp": true,
+        "width": 5,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "245740392cf114c1",
+        "type": "ui_group",
+        "name": "Max Temperature",
+        "tab": "219607d6d81babce",
+        "order": 1,
+        "disp": true,
+        "width": 5,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "ce3d1c400af8be7f",
+        "type": "ui_group",
+        "name": "MaxPpm",
+        "tab": "219607d6d81babce",
+        "order": 3,
+        "disp": true,
+        "width": 5,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "3874de3d23663369",
+        "type": "ui_group",
+        "name": "Min Humidity",
+        "tab": "b16fca468f1d9181",
+        "order": 2,
+        "disp": true,
+        "width": 5,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "a6bbea7baf0b5f47",
+        "type": "ui_group",
+        "name": "Min Temperature",
+        "tab": "b16fca468f1d9181",
+        "order": 1,
+        "disp": true,
+        "width": 5,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "30321bdbaa3662c3",
+        "type": "ui_group",
+        "name": "Min PPM",
+        "tab": "b16fca468f1d9181",
+        "order": 3,
+        "disp": true,
+        "width": 5,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "d46d0ace9e4734b3",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "219607d6d81babce",
+        "type": "ui_tab",
+        "name": "Max",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "b16fca468f1d9181",
+        "type": "ui_tab",
+        "name": "Min",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false,
+        "info": "# Minimun dials"
+    }
+]
